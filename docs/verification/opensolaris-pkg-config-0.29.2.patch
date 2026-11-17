@@ -1,0 +1,10 @@
+--- a/glib/glib/ggettext.c
++++ b/glib/glib/ggettext.c
+@@ -25,6 +25,7 @@
+  */
+ 
+ #include "config.h"
++#include <locale.h>
+ 
+ #include "ggettext.h"
+ #include "glibintl.h"

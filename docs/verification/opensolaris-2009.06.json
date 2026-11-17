@@ -1,0 +1,383 @@
+{
+  "tested_at_utc": "2026-11-17T09:49:25.171170+00:00",
+  "scope": "C99 library and C regression suite built and executed natively on original Sun OpenSolaris 2009.06 in both 32-bit and 64-bit modes; CMake builds, installed consumers, and cross-ABI messaging/shared-memory examples. C++17 helpers and Rust are not covered.",
+  "platform": [
+    "SunOS opensolaris 5.11 snv_111b i86pc i386 i86pc",
+    "64-bit amd64 kernel modules",
+    "gcc-4.3.2 (GCC) 4.3.2"
+  ],
+  "media": {
+    "downloaded_at_utc": "2026-11-17T08:43:40.457016+00:00",
+    "source_url": "https://mirror.math.princeton.edu/pub/opensolaris/2009/06/osol-0906-x86.iso",
+    "checksum_url": "https://mirror.math.princeton.edu/pub/opensolaris/2009/06/osol-0906-hashes.txt",
+    "bytes": 709871616,
+    "md5": "86e19c89a30c9b91cbb096a758dea737",
+    "sha256": "cda231e0175415426e6ba91494714a8f487746084df28901eba066b6578aad4d"
+  },
+  "configuration": {
+    "messaging": "unix",
+    "shared_memory": "posix",
+    "reactor": "poll",
+    "semaphore_clockwait": false,
+    "compiler_flags": "-std=c99 -Wall -Wextra -Werror -Wno-missing-field-initializers",
+    "core_feature_definitions": [
+      "_POSIX_C_SOURCE=200112L",
+      "_REENTRANT",
+      "__EXTENSIONS__"
+    ]
+  },
+  "results": [
+    {
+      "bits": 32,
+      "test": "test",
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 32,
+      "test": "crash",
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 32,
+      "test": "framing",
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 32,
+      "test": "behavior",
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 32,
+      "test": "behavior",
+      "linkage": "static",
+      "exit_code": 0
+    },
+    {
+      "bits": 64,
+      "test": "test",
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 64,
+      "test": "crash",
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 64,
+      "test": "framing",
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 64,
+      "test": "behavior",
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 64,
+      "test": "behavior",
+      "linkage": "static",
+      "exit_code": 0
+    }
+  ],
+  "cross_abi_results": [
+    {
+      "owner_bits": 32,
+      "peer_bits": 64,
+      "mechanism": "messaging",
+      "exit_code": 0
+    },
+    {
+      "owner_bits": 32,
+      "peer_bits": 64,
+      "mechanism": "shared_memory",
+      "exit_code": 0
+    },
+    {
+      "owner_bits": 64,
+      "peer_bits": 32,
+      "mechanism": "messaging",
+      "exit_code": 0
+    },
+    {
+      "owner_bits": 64,
+      "peer_bits": 32,
+      "mechanism": "shared_memory",
+      "exit_code": 0
+    }
+  ],
+  "benchmarks": {
+    "32_bit": "100 roundtrips, 64-byte payload",
+    "64_bit": "100 roundtrips, 64-byte payload"
+  },
+  "notes": [
+    "Original Sun snv_111b kernel, booted from an installed virtual disk; this is separate from illumos testing.",
+    "Network egress is disabled; SSH is forwarded only on localhost.",
+    "Tests ran as the ordinary ipctest user.",
+    "Development files came from the archived original IPS repository, with each extracted payload checked against its manifest SHA-1 content hash.",
+    "GCC 4.3 warns about valid zero-initialized aggregates under -Wextra; only that warning was disabled.",
+    "The archived ISO MD5 matches the mirror checksum listing. SHA-256 is a local provenance pin.",
+    "Native CMake 3.16.9 was built using bootstrapped GCC 4.8.5, with its existing SUNOS_NO_IFADDRS fallback, OpenSSL disabled, and the saved utimes compatibility patch. The library itself was compiled with original GCC 4.3.2.",
+    "pkg-config 0.29.2 was built using GCC 4.3.2 with -march=i686 and the saved GLib locale-header ordering patch.",
+    "Original pkg-config 0.23 passes normal-prefix shared/static consumers. It truncates paths containing spaces.",
+    "CMake 3.16 FindPkgConfig also splits escaped spaces. Relocated pkg-config consumers therefore use Python 2.4 shlex to pass the emitted flags directly to the native compiler. Separate relocated consumers exercise the CMake exports.",
+    "Source hashes identify the tested checkout; coverage is limited to the C and packaging scopes stated above."
+  ],
+  "development_repository": "https://mirror.math.princeton.edu/pub/opensolaris/2009/06/osol-repo-0906-full.iso",
+  "development_manifest_sha256": {
+    "SUNWarc.manifest": "5a1ee334f2a62cc2512b982fee6619759316eefa0c1ca65291cc46d1a0c48e99",
+    "SUNWbinutils.manifest": "7a7a86d5090bb02853c1e5432cb6ca547774ec16733bae042180a64249963ac0",
+    "SUNWbtool.manifest": "22112aa1a006d3067ab7974335b71e638f0a4f6f7439ed08058172de880b3407",
+    "SUNWgmake.manifest": "964cbc77cc64b582fab8bd609dd6d32e9c7136de91942de7a1e88f3ad2c342b8",
+    "SUNWgnome-common-devel.manifest": "0da44c3bcf16cad80e92b2e87066b0ccd5be4b2ef850c2eb9e80fe16097db1d1",
+    "SUNWgnu-mp.manifest": "f8e9d2cce34d32804b888845130e9ae5c6ef927e5e54e8500d7c9b6ea4ae254c",
+    "SUNWgnu-mpfr.manifest": "ebef1318acc739410e806dd2758071e639f7ac995c800bae87b27b6b274cdcf1",
+    "SUNWhea.manifest": "1d3407f45ae3b81cfd0fe038b17cdb8aefeb83fd5fcd463625dcbf9d8b671828",
+    "SUNWtoo.manifest": "b65f83431e1034f2ac4593a1a24421f285ac319d60004c9d2bd895e00ac3d828",
+    "developer%2Fgcc%2Fgcc-432.manifest": "b1985a440dcb799343df24736330babc15c8efdd5d3f911f9aae95f4d4a4f3bd",
+    "developer%2Fgcc%2Fgcc-runtime-432.manifest": "92cd3e1fb7b5bcfc71a83c474c84ed31f3f72ca1e4509e001c7660aea62b95a7",
+    "gcc432.manifest": "b1985a440dcb799343df24736330babc15c8efdd5d3f911f9aae95f4d4a4f3bd"
+  },
+  "source_sha256": {
+    "CMakeLists.txt": "53ca7445ac700d9ca0d2ca26ab48e7c771e09a84be41e8972b19176907cd0994",
+    "Cargo.lock": "34131112705d0f0585a0ed0726f49a5e9d14dfdd7053c65401b0dffa4dd9629e",
+    "Cargo.toml": "c2880f86ab0f91a78dd7566b732d4f1bd3866b5196d819dd659e889b6a06b653",
+    "LICENSE": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95",
+    "benchmarks/roundtrip.c": "6b2c345e565e3750aafdf501777e5dbf589f2bf440be4625494d7ca946bc1e56",
+    "ci/check_package.py": "c36799021e7ee986b2554299c7993f40d20f686393a6618383236c82f29f782f",
+    "ci/sun_opensolaris_c.sh": "570395cd7f6f7ca51d9f18ce3c4ad73ba96df76d05f5332dc32297fc9770c49e",
+    "ci/unix.sh": "36557e1b80b42b43a85818b0f671cce7bc7c879d11bfcfbb593d2f961a94bd0a",
+    "cmake/ipc_config.h.in": "f55ca41bc01ad5478acf07883350186f33eef15087e78ca6410bca963e2d6ff9",
+    "cmake/libipc-static.pc.in": "2cea84b2416e681d605dcabb234dbc017ff29185c1baf8c1ee5ed0501eb3e8cd",
+    "cmake/libipc.pc.in": "923cbf54bfb52e37c3010759eee8e9b45430361a4186510759779dffd61d792b",
+    "cmake/libipcConfig.cmake.in": "2698b5b0c11423c503ac19fa762d8cf4d4bb6605a367edb899a176c6d6119190",
+    "cmake/mingw.cmake": "19618e54cdb216867944877f1752a47837d7d55e94a565735b7ca5f409540f80",
+    "cmake/zig-linux.cmake": "df7aa6c4fd24103ac7671a5d3caf4f7ca46be1616d46938c35486e4f3809e5a3",
+    "examples/echo.c": "9d8aa96cede61232a800db5e1ca9d0dc6bf89e3ecb6a73c9810fd2656ad92e43",
+    "examples/shared_memory.c": "08572ccc3042c94559cfa2c2936b1049fb8378a0aaabaf57d7718dcc48099ab1",
+    "include/libipc/ipc.h": "dab2811f46ac1c0521d4e836f5c5e8749839d9dd203857e45f0eb36172a935e7",
+    "include/libipc/ipc.hpp": "4973ec9720be4b48f0ceb491e13c133659501874b986a5de5d8bfafed194e5f4",
+    "rust/libipc-sys/Cargo.toml": "96f91e64de020b52e7ced27adb537a124ca1e5dfa8f4e325e7a0fd9ad4a062f3",
+    "rust/libipc-sys/build.rs": "8f8073bd120cad5f2a8f97588cfdfbd29de607b87af0f09cd58f7eb9df33bb29",
+    "rust/libipc-sys/src/lib.rs": "dc7a070ed2d264c3b40270b818ad3c4bf940dbfd07f1f2ebc5a23aea59a623bf",
+    "rust/libipc/Cargo.toml": "da52645b2850be00bfb19f1cd9332135c7ff6f2946fc8ca4d90cc8dd75c119aa",
+    "rust/libipc/build.rs": "5f4af4536f668fad6734f4b4ab77f98b93e14bc7562c29b28d75bc6fda7489ee",
+    "rust/libipc/src/lib.rs": "2a2d501f99c13cadbedc679f8434f47f3c5d8915fe51482cc602b234123280cb",
+    "src/ipc.c": "b368bb02d56b187598b173ab5ee019d6d3083ce36ee291fc288fe744674dc677",
+    "src/ipc_win32.c": "03763a6c57d5e083d50921e85b5e23cebb5dca9a3f2c389db52254d45ab5b8cf",
+    "src/reactor.h": "f7db3f8feecd0e0898519271bb4919b80a8324a5a96ab73a14fee644b0d871aa",
+    "src/reactor_native.c": "dfa6dddded89896f3024e287c5eb5d05e913c27b313121edd828c0433b95e298",
+    "src/reactor_poll.c": "6794cdf69238c9fce165d983c87314d974b7aeed563eff109f6fac357ecdc926",
+    "tests/behavior.c": "f3474c509653fcd6b069d535ddfb933813518ba1d6c272d339c61d367e9db571",
+    "tests/check.h": "19d317c5c2b3a9efaa9ecdb0b725b67350a319bcd2fae9eaaf61c3364640ec10",
+    "tests/configure.cmake": "ebfe123ba21df9d21b78a1c6ffc87626f1173e5c362a00c4a6a442a006a80705",
+    "tests/consumer/main.c": "bb69ba4078406272cc9bff26cf66c5ee072a1c3f379d9fc3b5704bc0b9c32373",
+    "tests/cpp.cpp": "3be1ac95aab6cbedbd20e8456ff2039536080331013b8d612407f1c8d25c9b30",
+    "tests/crash.c": "5587f9d1bf9bacd0fdf15ef64544fe7fb3e257faeb3a5f53553fa0e8618ee18c",
+    "tests/crash_win32.c": "9bd23b67285b6deb3838f23c7d4ce8c439469e9b43b2d1bac7e81301b9cd150f",
+    "tests/framing.c": "61cb30b1e3e546027df8c5a2446ad54a8dadc309328b66aae07c3802d5051d2e",
+    "tests/process.c": "877a8f1d7572faff5914e5406a964bc8d8c5035354a97da71a880a3d6e7e7c6f",
+    "tests/process.h": "566ee44f6cb25fe02a102d03341d40a6d53a776113786fa2acd1de575d7023f4",
+    "tests/test.c": "61c5522a5919be4657fb1ff6fbab1b418cde74ebdbdb21f705322f87a7783dea",
+    "tests/test_win32.c": "6897e55cf6e4d2fbc06818b7cbe63353b38d8f2ad4e6919ebe3984b0e7e5b246"
+  },
+  "log_sha256": "1015a52023571e5829f8f6b1a1ea26ab83fc28e3e3a1ca80043c10ba8917e7ba",
+  "log": [
+    "",
+    "SunOS opensolaris 5.11 snv_111b i86pc i386 i86pc Solaris",
+    "gcc-4.3.2 (GCC) 4.3.2",
+    "IPC integration passed",
+    "NATIVE_C_PASS bits=32 test=test linkage=shared",
+    "POSIX crash cleanup passed",
+    "NATIVE_C_PASS bits=32 test=crash linkage=shared",
+    "Adversarial framing passed",
+    "NATIVE_C_PASS bits=32 test=framing linkage=shared",
+    "IPC behavior tests passed",
+    "NATIVE_C_PASS bits=32 test=behavior linkage=shared",
+    "IPC behavior tests passed",
+    "NATIVE_C_PASS bits=32 test=behavior linkage=static",
+    "libipc 0.1.0; messaging=unix; shm=posix; reactor=poll",
+    "roundtrips=100 bytes=64 median_us=9.21 p95_us=9.44 MiB_per_s=12.91",
+    "build-sun-32/test:\tELF 32-bit LSB executable 80386 Version 1 [FPU], dynamically linked, not stripped, no debugging information available",
+    "build-sun-32/libipc.so.0:\tELF 32-bit LSB dynamic lib 80386 Version 1, dynamically linked, not stripped, no debugging information available",
+    "\tlibipc.so.0 =>\t /export/home/ipctest/libipc/build-sun-32/libipc.so.0",
+    "\tlibpthread.so.1 =>\t /lib/libpthread.so.1",
+    "\tlibrt.so.1 =>\t /lib/librt.so.1",
+    "\tlibsocket.so.1 =>\t /lib/libsocket.so.1",
+    "\tlibnsl.so.1 =>\t /lib/libnsl.so.1",
+    "\tlibc.so.1 =>\t /lib/libc.so.1",
+    "\tlibgcc_s.so.1 =>\t /usr/lib/libgcc_s.so.1",
+    "\tlibmp.so.2 =>\t /lib/libmp.so.2",
+    "\tlibmd.so.1 =>\t /lib/libmd.so.1",
+    "\tlibscf.so.1 =>\t /lib/libscf.so.1",
+    "\tlibuutil.so.1 =>\t /lib/libuutil.so.1",
+    "\tlibgen.so.1 =>\t /lib/libgen.so.1",
+    "\tlibm.so.2 =>\t /lib/libm.so.2",
+    "IPC integration passed",
+    "NATIVE_C_PASS bits=64 test=test linkage=shared",
+    "POSIX crash cleanup passed",
+    "NATIVE_C_PASS bits=64 test=crash linkage=shared",
+    "Adversarial framing passed",
+    "NATIVE_C_PASS bits=64 test=framing linkage=shared",
+    "IPC behavior tests passed",
+    "NATIVE_C_PASS bits=64 test=behavior linkage=shared",
+    "IPC behavior tests passed",
+    "NATIVE_C_PASS bits=64 test=behavior linkage=static",
+    "libipc 0.1.0; messaging=unix; shm=posix; reactor=poll",
+    "roundtrips=100 bytes=64 median_us=6.73 p95_us=6.91 MiB_per_s=17.66",
+    "build-sun-64/test:\tELF 64-bit LSB executable AMD64 Version 1, dynamically linked, not stripped, no debugging information available",
+    "build-sun-64/libipc.so.0:\tELF 64-bit LSB dynamic lib AMD64 Version 1, dynamically linked, not stripped, no debugging information available",
+    "\tlibipc.so.0 =>\t /export/home/ipctest/libipc/build-sun-64/libipc.so.0",
+    "\tlibpthread.so.1 =>\t /lib/64/libpthread.so.1",
+    "\tlibrt.so.1 =>\t /lib/64/librt.so.1",
+    "\tlibsocket.so.1 =>\t /lib/64/libsocket.so.1",
+    "\tlibnsl.so.1 =>\t /lib/64/libnsl.so.1",
+    "\tlibc.so.1 =>\t /lib/64/libc.so.1",
+    "\tlibgcc_s.so.1 =>\t /usr/lib/64/libgcc_s.so.1",
+    "\tlibmp.so.2 =>\t /lib/64/libmp.so.2",
+    "\tlibmd.so.1 =>\t /lib/64/libmd.so.1",
+    "\tlibscf.so.1 =>\t /lib/64/libscf.so.1",
+    "\tlibuutil.so.1 =>\t /lib/64/libuutil.so.1",
+    "\tlibgen.so.1 =>\t /lib/64/libgen.so.1",
+    "\tlibm.so.2 =>\t /lib/64/libm.so.2",
+    "NATIVE_ABI_PASS owner=32 peer=64 mechanism=messaging",
+    "cross-abi-memory",
+    "NATIVE_ABI_PASS owner=32 peer=64 mechanism=shared_memory",
+    "NATIVE_ABI_PASS owner=64 peer=32 mechanism=messaging",
+    "cross-abi-memory",
+    "NATIVE_ABI_PASS owner=64 peer=32 mechanism=shared_memory"
+  ],
+  "cmake_ctest_pass_counts": {
+    "32_bit": 6,
+    "64_bit": 6
+  },
+  "cmake_configurations": {
+    "32": "/* Generated configuration: exactly one reactor is compiled into each build. */\n#define IPC_REACTOR_NAME \"poll\"\n#define IPC_REACTOR_EPOLL 0\n#define IPC_HAVE_SEM_CLOCKWAIT 0",
+    "64": "/* Generated configuration: exactly one reactor is compiled into each build. */\n#define IPC_REACTOR_NAME \"poll\"\n#define IPC_REACTOR_EPOLL 0\n#define IPC_HAVE_SEM_CLOCKWAIT 0"
+  },
+  "cmake_binary_metadata": {
+    "32": "/export/home/ipctest/libipc/build-cmake-sun-32/ipc_test:\tELF 32-bit LSB executable 80386 Version 1 [FPU], dynamically linked, not stripped, no debugging information available\n/export/home/ipctest/libipc/build-cmake-sun-32/libipc.so.0:\tELF 32-bit LSB dynamic lib 80386 Version 1, dynamically linked, not stripped, no debugging information available",
+    "64": "/export/home/ipctest/libipc/build-cmake-sun-64/ipc_test:\tELF 64-bit LSB executable AMD64 Version 1, dynamically linked, not stripped, no debugging information available\n/export/home/ipctest/libipc/build-cmake-sun-64/libipc.so.0:\tELF 64-bit LSB dynamic lib AMD64 Version 1, dynamically linked, not stripped, no debugging information available"
+  },
+  "relocated_package_results": [
+    {
+      "bits": 32,
+      "metadata": "cmake",
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 32,
+      "metadata": "cmake",
+      "linkage": "static",
+      "exit_code": 0
+    },
+    {
+      "bits": 32,
+      "metadata": "pkg-config",
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 32,
+      "metadata": "pkg-config",
+      "linkage": "static",
+      "exit_code": 0
+    },
+    {
+      "bits": 64,
+      "metadata": "cmake",
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 64,
+      "metadata": "cmake",
+      "linkage": "static",
+      "exit_code": 0
+    },
+    {
+      "bits": 64,
+      "metadata": "pkg-config",
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 64,
+      "metadata": "pkg-config",
+      "linkage": "static",
+      "exit_code": 0
+    }
+  ],
+  "legacy_pkgconfig_results": [
+    {
+      "bits": 32,
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 32,
+      "linkage": "static",
+      "exit_code": 0
+    },
+    {
+      "bits": 64,
+      "linkage": "shared",
+      "exit_code": 0
+    },
+    {
+      "bits": 64,
+      "linkage": "static",
+      "exit_code": 0
+    }
+  ],
+  "build_tool_versions": [
+    "cmake version 3.16.9",
+    "",
+    "CMake suite maintained and supported by Kitware (kitware.com/cmake).",
+    "gcc (GCC) 4.8.5",
+    "0.29.2",
+    "0.23",
+    "Python 2.4.4"
+  ],
+  "build_tool_sources_sha256": {
+    "cmake-3.16.9.tar.gz": "1708361827a5a0de37d55f5c9698004c035abb1de6120a376d5d59a81630191f",
+    "gcc-4.8.5.tar.bz2": "22fb1e7e0f68a63cee631d85b20461d1ea6bda162f03096350e38c8d427ecf23",
+    "gmp-4.3.2.tar.bz2": "936162c0312886c21581002b79932829aa048cfaf9937c6265aeaa14f1cd1775",
+    "mpc-0.8.1.tar.gz": "e664603757251fd8a352848276497a4c79b7f8b21fd8aedd5cc0598a38fee3e4",
+    "mpfr-2.4.2.tar.bz2": "c7e75a08a8d49d2082e4caee1591a05d11b9d5627514e678f02d66a124bcf2ba",
+    "pkg-config-0.29.2.tar.gz": "6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591"
+  },
+  "verification_artifact_sha256": {
+    "ci/sun_opensolaris_c.sh": "570395cd7f6f7ca51d9f18ce3c4ad73ba96df76d05f5332dc32297fc9770c49e",
+    "docs/verification/opensolaris-cmake-harness.sh": "8a7c1bcdf04a8682690039bd6851062f5442f3a5ff4b658296ad079770de9a3d",
+    "docs/verification/opensolaris-pkgconfig-consumer.py": "8c7964f97ccba7ec5623fbaf2ef983ea3c99fa1adddf848cabce78f651c408e1",
+    "docs/verification/opensolaris-cmake-3.16.patch": "47d16ee670f06cab0fabedfd77f730923dfab76d34b1aa0d10b578dd525d45b2",
+    "docs/verification/opensolaris-pkg-config-0.29.2.patch": "b7dfe946c0f89dcf6372a690ea2c67de087732bdf8a395e8435a7236ba0d9a80"
+  },
+  "cmake_log_sha256": "a4499dfd4c51f3e28a81440161a846e394cbd9a835e0bfb4ebb376d8d89917e3",
+  "cmake_result_summary": [
+    "100% tests passed, 0 tests failed out of 6",
+    "NATIVE_LEGACY_PACKAGE_PASS bits=32 linkage=shared",
+    "NATIVE_LEGACY_PACKAGE_PASS bits=32 linkage=static",
+    "NATIVE_PACKAGE_PASS bits=32 metadata=cmake linkage=shared",
+    "NATIVE_PACKAGE_PASS bits=32 metadata=cmake linkage=static",
+    "NATIVE_PACKAGE_PASS bits=32 metadata=pkg-config linkage=shared",
+    "NATIVE_PACKAGE_PASS bits=32 metadata=pkg-config linkage=static",
+    "100% tests passed, 0 tests failed out of 6",
+    "NATIVE_LEGACY_PACKAGE_PASS bits=64 linkage=shared",
+    "NATIVE_LEGACY_PACKAGE_PASS bits=64 linkage=static",
+    "NATIVE_PACKAGE_PASS bits=64 metadata=cmake linkage=shared",
+    "NATIVE_PACKAGE_PASS bits=64 metadata=cmake linkage=static",
+    "NATIVE_PACKAGE_PASS bits=64 metadata=pkg-config linkage=shared",
+    "NATIVE_PACKAGE_PASS bits=64 metadata=pkg-config linkage=static"
+  ]
+}

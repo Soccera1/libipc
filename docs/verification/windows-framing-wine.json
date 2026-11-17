@@ -1,0 +1,24 @@
+{
+  "tested_at_utc": "2026-11-17T08:25:48.015260+00:00",
+  "scope": "Raw named-pipe peer against Windows IOCP under Wine; native execution is recorded separately in windows-native.json",
+  "runtime": "wine-11.0 (Proton-11.0-2e)",
+  "compiler": "16.2.0",
+  "cases": [
+    "cancel fragmented header and preserve frame",
+    "cancel fragmented payload and preserve frame",
+    "reject oversized length before payload allocation",
+    "peer EOF during header",
+    "peer EOF during payload",
+    "preserve backpressured-send TIMEOUT while closing the channel and draining native I/O"
+  ],
+  "result": "passed",
+  "source_sha256": {
+    "CMakeLists.txt": "6ab6b6c1c11665b532dadf7d38ce2b8bd9bdbef764b32d33c697228d0fb6e05a",
+    "tests/framing.c": "61cb30b1e3e546027df8c5a2446ad54a8dadc309328b66aae07c3802d5051d2e",
+    "tests/check.h": "19d317c5c2b3a9efaa9ecdb0b725b67350a319bcd2fae9eaaf61c3364640ec10",
+    "src/ipc_win32.c": "03763a6c57d5e083d50921e85b5e23cebb5dca9a3f2c389db52254d45ab5b8cf",
+    "include/libipc/ipc.h": "dab2811f46ac1c0521d4e836f5c5e8749839d9dd203857e45f0eb36172a935e7"
+  },
+  "binary_sha256": "3f8b6ad0578544e35ac9c6cd1808b9eee134609e95a4e5090335ee2a78944aed",
+  "log_sha256": "ffe9044d311e8b1ba44b660abd6f41a6179353aeecb60f7109bd5be87d4c0eac"
+}

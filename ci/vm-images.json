@@ -1,0 +1,47 @@
+{
+  "freebsd-14.3": {
+    "repository": "anyvm-org/freebsd-builder",
+    "tag": "v2.2.9",
+    "bytes": 1295743256,
+    "sha256": "061bd4ffdc46d09d3a4139496d6feb04d4faad35ed05948ba6aeb0bdbda5b146",
+    "key_sha256": "f77557ca1ca0f555c79d2f016ae49e57335ffc074fb5a26e1bf4b3c462c89727",
+    "disk": "virtio",
+    "nic": "virtio-net-pci"
+  },
+  "netbsd-10.1": {
+    "repository": "anyvm-org/netbsd-builder",
+    "tag": "v2.2.9",
+    "bytes": 344860304,
+    "sha256": "fd017fd03c829d9a35d3ef5fc00673a11b7d3f629ee62fbbf2ebbcd2587409d5",
+    "key_sha256": "69f8373185360359904c1e3e502658b5e1097c1bdae9e78d9278e6d57a614b0f",
+    "disk": "virtio",
+    "nic": "e1000"
+  },
+  "openbsd-8.0": {
+    "repository": "anyvm-org/openbsd-builder",
+    "tag": "v2.1.1",
+    "bytes": 623575019,
+    "sha256": "03cbc153c0d70a32d9aee1b7f6f8e28262c28b29ee7f17147f3fe09ff2668f80",
+    "key_sha256": "f3a9e1bef103be5c41da8a55cb52b8a7acbb90e0e38538d0798b79aae4bb4d64",
+    "disk": "virtio",
+    "nic": "virtio-net-pci"
+  },
+  "dragonflybsd-6.4.2": {
+    "repository": "anyvm-org/dragonflybsd-builder",
+    "tag": "v2.0.8",
+    "bytes": 892505217,
+    "sha256": "b220b79e0992fc5ee1435d21e636fc144ca82b2e2ce2594d83725e34eca152ac",
+    "key_sha256": "b0b37aac1bce646976e0926bc78757b1285bcddc8d834b892eeab451a893eb42",
+    "disk": "ide",
+    "nic": "virtio-net-pci"
+  },
+  "omnios-r151050": {
+    "repository": "anyvm-org/omnios-builder",
+    "tag": "v2.1.4",
+    "bytes": 763388827,
+    "sha256": "2eea62c15275c9c9b76a0cbdf51817c1ea90b029fcbb33216d8b5ad45d4f398d",
+    "key_sha256": "b44c6b0fb9595dea2d0bee96a6eef431c24c8d9163de24b0a992fc54e5cb77f2",
+    "disk": "virtio",
+    "nic": "virtio-net-pci"
+  }
+}

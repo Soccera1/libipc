@@ -1,0 +1,4 @@
+/* Generated configuration: exactly one reactor is compiled into each build. */
+#define IPC_REACTOR_NAME "@IPC_EVENT_BACKEND@"
+#cmakedefine01 IPC_REACTOR_EPOLL
+#cmakedefine01 IPC_HAVE_SEM_CLOCKWAIT

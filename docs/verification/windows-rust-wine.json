@@ -1,0 +1,46 @@
+{
+  "tested_at_utc": "2026-11-17T08:25:48.015510+00:00",
+  "scope": "Windows Rust ABI and futures against static/DLL libraries under Wine; native execution is recorded separately in windows-native.json",
+  "platform": {
+    "rustc": "rustc 1.99.0 (b940084d7 2026-09-28) (gentoo)",
+    "compiler": "16.2.0",
+    "runtime": "wine-11.0 (Proton-11.0-2e)",
+    "target": "x86_64-pc-windows-gnu"
+  },
+  "configuration": "/* Generated configuration: exactly one reactor is compiled into each build. */\n#define IPC_REACTOR_NAME \"iocp\"\n#define IPC_REACTOR_EPOLL 0\n#define IPC_HAVE_SEM_CLOCKWAIT 0",
+  "rust_pass_counts": {
+    "static": 6,
+    "dylib": 6
+  },
+  "tests": [
+    "reports_selected_backend",
+    "messaging_and_cancel",
+    "semaphore_drop_refunds_and_guard_releases",
+    "external_waker_and_expired_driver",
+    "interoperates_with_c_process",
+    "rejects_unrepresentable_message_limits"
+  ],
+  "standard_library": "Built from the installed Rust sources with RUSTC_BOOTSTRAP=1 and Cargo -Z build-std. A local libgcc_eh.a alias selects the SEH unwind symbols in the installed MinGW static libgcc.a.",
+  "source_sha256": {
+    "Cargo.toml": "c2880f86ab0f91a78dd7566b732d4f1bd3866b5196d819dd659e889b6a06b653",
+    "Cargo.lock": "34131112705d0f0585a0ed0726f49a5e9d14dfdd7053c65401b0dffa4dd9629e",
+    "src/ipc_win32.c": "03763a6c57d5e083d50921e85b5e23cebb5dca9a3f2c389db52254d45ab5b8cf",
+    "include/libipc/ipc.h": "dab2811f46ac1c0521d4e836f5c5e8749839d9dd203857e45f0eb36172a935e7",
+    "rust/libipc/Cargo.toml": "da52645b2850be00bfb19f1cd9332135c7ff6f2946fc8ca4d90cc8dd75c119aa",
+    "rust/libipc/build.rs": "5f4af4536f668fad6734f4b4ab77f98b93e14bc7562c29b28d75bc6fda7489ee",
+    "rust/libipc/src/lib.rs": "2a2d501f99c13cadbedc679f8434f47f3c5d8915fe51482cc602b234123280cb",
+    "rust/libipc-sys/Cargo.toml": "96f91e64de020b52e7ced27adb537a124ca1e5dfa8f4e325e7a0fd9ad4a062f3",
+    "rust/libipc-sys/build.rs": "8f8073bd120cad5f2a8f97588cfdfbd29de607b87af0f09cd58f7eb9df33bb29",
+    "rust/libipc-sys/src/lib.rs": "dc7a070ed2d264c3b40270b818ad3c4bf940dbfd07f1f2ebc5a23aea59a623bf",
+    "examples/echo.c": "9d8aa96cede61232a800db5e1ca9d0dc6bf89e3ecb6a73c9810fd2656ad92e43"
+  },
+  "artifact_sha256": {
+    "build-win/libipc_static.a": "5d179144fb3d8f8fe1a21e78a2917da0639ba09983eb96c64ad2436df463c0bb",
+    "build-win/libipc.dll": "dca6019d36411031d6fe64940ae6876c44a1c796fca4d984826312df5e60ba79",
+    "build-win/ipc_echo.exe": "abb9408035362f3e5182e9967669702668bdf18c4606f432335f75014563580f"
+  },
+  "test_log_sha256": {
+    "static": "f6b80caea419375e06da3a49abc501085e8a9e8c79617ac17d0a0645b69d1d27",
+    "dylib": "fb99b33889a794f760fb0113c8a44db3f3b02b38ccdd8173bf4454c9815422a4"
+  }
+}

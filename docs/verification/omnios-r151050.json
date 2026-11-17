@@ -1,0 +1,69 @@
+{
+  "tested_at_utc": "2026-11-17T09:36:40.343784+00:00",
+  "platform": [
+    "SunOS omnios 5.11 omnios-r151050-6f87d0b5d63 i86pc i386 i86pc",
+    "gcc (OmniOS 151050/13.2.0-il-0) 13.2.0",
+    "cmake version 4.0.1",
+    "64-bit amd64 kernel modules",
+    "/root/libipc/build-native/ipc_echo:\tELF 64-bit LSB executable AMD64 Version 1, dynamically linked, not stripped, no debugging information available",
+    "rustc 1.86.0 (05f9846f8 2025-03-31) (OmniOS/151050)"
+  ],
+  "ctest_pass_counts": {
+    "build-native": 8,
+    "build-portable": 8
+  },
+  "configurations": {
+    "build-native": "/* Generated configuration: exactly one reactor is compiled into each build. */\n#define IPC_REACTOR_NAME \"poll\"\n#define IPC_REACTOR_EPOLL 0\n#define IPC_HAVE_SEM_CLOCKWAIT 0",
+    "build-portable": "/* Generated configuration: exactly one reactor is compiled into each build. */\n#define IPC_REACTOR_NAME \"poll\"\n#define IPC_REACTOR_EPOLL 0\n#define IPC_HAVE_SEM_CLOCKWAIT 0"
+  },
+  "package_pass_counts": {
+    "build-native": 4,
+    "build-portable": 4
+  },
+  "rust_pass_counts": {
+    "default": 6,
+    "explicit_poll": 6
+  },
+  "source_sha256": {
+    "CMakeLists.txt": "53ca7445ac700d9ca0d2ca26ab48e7c771e09a84be41e8972b19176907cd0994",
+    "Cargo.lock": "34131112705d0f0585a0ed0726f49a5e9d14dfdd7053c65401b0dffa4dd9629e",
+    "Cargo.toml": "c2880f86ab0f91a78dd7566b732d4f1bd3866b5196d819dd659e889b6a06b653",
+    "LICENSE": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95",
+    "benchmarks/roundtrip.c": "6b2c345e565e3750aafdf501777e5dbf589f2bf440be4625494d7ca946bc1e56",
+    "ci/check_package.py": "c36799021e7ee986b2554299c7993f40d20f686393a6618383236c82f29f782f",
+    "ci/unix.sh": "36557e1b80b42b43a85818b0f671cce7bc7c879d11bfcfbb593d2f961a94bd0a",
+    "cmake/ipc_config.h.in": "f55ca41bc01ad5478acf07883350186f33eef15087e78ca6410bca963e2d6ff9",
+    "cmake/libipc-static.pc.in": "2cea84b2416e681d605dcabb234dbc017ff29185c1baf8c1ee5ed0501eb3e8cd",
+    "cmake/libipc.pc.in": "923cbf54bfb52e37c3010759eee8e9b45430361a4186510759779dffd61d792b",
+    "cmake/libipcConfig.cmake.in": "2698b5b0c11423c503ac19fa762d8cf4d4bb6605a367edb899a176c6d6119190",
+    "cmake/mingw.cmake": "19618e54cdb216867944877f1752a47837d7d55e94a565735b7ca5f409540f80",
+    "cmake/zig-linux.cmake": "df7aa6c4fd24103ac7671a5d3caf4f7ca46be1616d46938c35486e4f3809e5a3",
+    "examples/echo.c": "9d8aa96cede61232a800db5e1ca9d0dc6bf89e3ecb6a73c9810fd2656ad92e43",
+    "examples/shared_memory.c": "08572ccc3042c94559cfa2c2936b1049fb8378a0aaabaf57d7718dcc48099ab1",
+    "include/libipc/ipc.h": "dab2811f46ac1c0521d4e836f5c5e8749839d9dd203857e45f0eb36172a935e7",
+    "include/libipc/ipc.hpp": "4973ec9720be4b48f0ceb491e13c133659501874b986a5de5d8bfafed194e5f4",
+    "rust/libipc-sys/Cargo.toml": "96f91e64de020b52e7ced27adb537a124ca1e5dfa8f4e325e7a0fd9ad4a062f3",
+    "rust/libipc-sys/build.rs": "8f8073bd120cad5f2a8f97588cfdfbd29de607b87af0f09cd58f7eb9df33bb29",
+    "rust/libipc-sys/src/lib.rs": "dc7a070ed2d264c3b40270b818ad3c4bf940dbfd07f1f2ebc5a23aea59a623bf",
+    "rust/libipc/Cargo.toml": "da52645b2850be00bfb19f1cd9332135c7ff6f2946fc8ca4d90cc8dd75c119aa",
+    "rust/libipc/build.rs": "5f4af4536f668fad6734f4b4ab77f98b93e14bc7562c29b28d75bc6fda7489ee",
+    "rust/libipc/src/lib.rs": "2a2d501f99c13cadbedc679f8434f47f3c5d8915fe51482cc602b234123280cb",
+    "src/ipc.c": "b368bb02d56b187598b173ab5ee019d6d3083ce36ee291fc288fe744674dc677",
+    "src/ipc_win32.c": "03763a6c57d5e083d50921e85b5e23cebb5dca9a3f2c389db52254d45ab5b8cf",
+    "src/reactor.h": "f7db3f8feecd0e0898519271bb4919b80a8324a5a96ab73a14fee644b0d871aa",
+    "src/reactor_native.c": "dfa6dddded89896f3024e287c5eb5d05e913c27b313121edd828c0433b95e298",
+    "src/reactor_poll.c": "6794cdf69238c9fce165d983c87314d974b7aeed563eff109f6fac357ecdc926",
+    "tests/behavior.c": "f3474c509653fcd6b069d535ddfb933813518ba1d6c272d339c61d367e9db571",
+    "tests/check.h": "19d317c5c2b3a9efaa9ecdb0b725b67350a319bcd2fae9eaaf61c3364640ec10",
+    "tests/configure.cmake": "ebfe123ba21df9d21b78a1c6ffc87626f1173e5c362a00c4a6a442a006a80705",
+    "tests/consumer/main.c": "bb69ba4078406272cc9bff26cf66c5ee072a1c3f379d9fc3b5704bc0b9c32373",
+    "tests/cpp.cpp": "3be1ac95aab6cbedbd20e8456ff2039536080331013b8d612407f1c8d25c9b30",
+    "tests/crash.c": "5587f9d1bf9bacd0fdf15ef64544fe7fb3e257faeb3a5f53553fa0e8618ee18c",
+    "tests/crash_win32.c": "9bd23b67285b6deb3838f23c7d4ce8c439469e9b43b2d1bac7e81301b9cd150f",
+    "tests/framing.c": "61cb30b1e3e546027df8c5a2446ad54a8dadc309328b66aae07c3802d5051d2e",
+    "tests/process.c": "877a8f1d7572faff5914e5406a964bc8d8c5035354a97da71a880a3d6e7e7c6f",
+    "tests/process.h": "566ee44f6cb25fe02a102d03341d40a6d53a776113786fa2acd1de575d7023f4",
+    "tests/test.c": "61c5522a5919be4657fb1ff6fbab1b418cde74ebdbdb21f705322f87a7783dea",
+    "tests/test_win32.c": "6897e55cf6e4d2fbc06818b7cbe63353b38d8f2ad4e6919ebe3984b0e7e5b246"
+  }
+}

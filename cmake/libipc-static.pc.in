@@ -1,0 +1,10 @@
+prefix=${pcfiledir}/@IPC_PC_PREFIX@
+exec_prefix=${prefix}
+libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
+includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+
+Name: libipc-static
+Description: Asynchronous portable local IPC (static archive)
+Version: @PROJECT_VERSION@
+Libs: -L"${libdir}" -lipc_static @IPC_PC_SYSTEM_LIBRARIES@
+Cflags: -I"${includedir}"

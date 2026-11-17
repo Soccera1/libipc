@@ -1,0 +1,7 @@
+[package]
+name = "libipc"
+version = "0.1.0"
+edition = "2021"
+license = "LGPL-2.1-or-later"
+[dependencies]
+libipc-sys = { path = "../libipc-sys", version = "0.1.0" }

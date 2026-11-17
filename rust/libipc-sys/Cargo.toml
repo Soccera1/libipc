@@ -1,0 +1,7 @@
+[package]
+name = "libipc-sys"
+version = "0.1.0"
+edition = "2021"
+license = "LGPL-2.1-or-later"
+links = "ipc"
+build = "build.rs"

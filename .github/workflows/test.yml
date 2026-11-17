@@ -1,0 +1,93 @@
+name: Test
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: cmake -S . -B build -DIPC_BUILD_CPP_TEST=ON
+      - run: cmake --build build --config Release
+      - run: ctest --test-dir build -C Release --output-on-failure
+      - run: cargo test --workspace
+      - if: runner.os != 'Windows'
+        run: python3 ci/check_package.py build
+      - if: runner.os != 'Windows'
+        run: |
+          cmake -S . -B build-poll -DIPC_EVENT_BACKEND=poll -DIPC_BUILD_CPP_TEST=ON
+          cmake --build build-poll
+          ctest --test-dir build-poll --output-on-failure
+          env IPC_EVENT_BACKEND=poll cargo test --workspace
+  freebsd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: vmactions/freebsd-vm@v1
+        with:
+          prepare: pkg install -y cmake rust python3 pkgconf ninja
+          run: |
+            sh ci/unix.sh
+            cargo test --workspace
+            env IPC_EVENT_BACKEND=poll cargo test --workspace
+            python3 ci/check_package.py build-native --generator Ninja
+            python3 ci/check_package.py build-portable --generator Ninja
+  openbsd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: vmactions/openbsd-vm@v1
+        with:
+          prepare: pkg_add cmake rust ninja
+          run: |
+            sh ci/unix.sh
+            cargo test --workspace
+            env IPC_EVENT_BACKEND=poll cargo test --workspace
+            python3 ci/check_package.py build-native --generator Ninja
+            python3 ci/check_package.py build-portable --generator Ninja
+  netbsd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: vmactions/netbsd-vm@v1
+        with:
+          prepare: /usr/sbin/pkg_add cmake rust python313 pkgconf ninja-build
+          run: |
+            export PATH=/usr/pkg/bin:$PATH
+            sh ci/unix.sh
+            cargo test --workspace
+            env IPC_EVENT_BACKEND=poll cargo test --workspace
+            python3.13 ci/check_package.py build-native --generator Ninja
+            python3.13 ci/check_package.py build-portable --generator Ninja
+  dragonfly:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: vmactions/dragonflybsd-vm@v1
+        with:
+          prepare: pkg install -y cmake rust python3 pkgconf ninja
+          run: |
+            sh ci/unix.sh
+            cargo test --workspace
+            env IPC_EVENT_BACKEND=poll cargo test --workspace
+            python3 ci/check_package.py build-native --generator Ninja
+            python3 ci/check_package.py build-portable --generator Ninja
+  illumos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: vmactions/omnios-vm@v1
+        with:
+          release: "r151050"
+          prepare: pkg install --accept developer/gcc13 ooce/developer/cmake ooce/developer/rust developer/pkg-config ooce/developer/ninja
+          run: |
+            export PATH=/opt/ooce/bin:/opt/gcc-13/bin:$PATH
+            sh ci/unix.sh
+            cargo test --workspace
+            env IPC_EVENT_BACKEND=poll cargo test --workspace
+            python3 ci/check_package.py build-native --generator Ninja
+            python3 ci/check_package.py build-portable --generator Ninja

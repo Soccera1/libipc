@@ -1,0 +1,3 @@
+[workspace]
+members = ["rust/libipc-sys", "rust/libipc"]
+resolver = "2"
